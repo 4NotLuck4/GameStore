@@ -8,6 +8,7 @@ body:
       value: |
         ## Форма отчета о дефекте
         Пожалуйста, заполните все обязательные поля (*) для качественного описания проблемы.
+
   - type: textarea
     id: description
     attributes:
@@ -16,61 +17,88 @@ body:
       placeholder: Опишите проблему, что пошло не так?
     validations:
       required: true
-      
+
   - type: textarea
-    id: Playback_steps
+    id: steps
     attributes:
       label: Шаги воспроизведения
+      description: Чёткая последовательность действий для воспроизведения дефекта
+      placeholder: |
+        1. Откройте приложение
+        2. Перейдите в раздел "Настройки"
+        3. Нажмите кнопку "Сохранить"
+        4. ...
     validations:
       required: true
 
   - type: textarea
-    id: Expected_result
+    id: expected_result
     attributes:
       label: Ожидаемый результат
+      description: Как система должна работать корректно
+      placeholder: Опишите ожидаемое поведение системы
     validations:
       required: true
 
   - type: textarea
-    id: Actual_result
+    id: actual_result
     attributes:
       label: Фактический результат
+      description: Что происходит на самом деле
+      placeholder: Опишите фактическое поведение системы (ошибка, зависание и т.д.)
     validations:
       required: true
 
   - type: textarea
-    id: Additional_materials
+    id: screenshots
     attributes:
       label: Скриншоты / Доп. материалы
-      
+      description: скриншоты, видео, логи или другие материалы
+      placeholder: screenshot.png
+
   - type: textarea
-    id: Execution_environment
+    id: environment
     attributes:
       label: Среда выполнения
-      placeholder: Операционная система, IDE и прочие программные особенности необходимые для нахождения дефекта
+      description: Окружение, в котором обнаружен дефект
+      placeholder: |
+        ОС: Windows 10 / Ubuntu 22.04 / macOS 14
+        Браузер: Chrome 120 / Firefox 121
+        Версия приложения: 1.2.3
+        Устройство: ПК / iPhone 15 / Android
+
+  - type: input
+    id: version
+    attributes:
+      label: Версия приложения
+      description: Версия приложения, в которой обнаружен дефект
+      placeholder: 1.0.0
 
   - type: dropdown
-    id: Priority
+    id: priority
     attributes:
       label: Приоритет
+      description: Важность исправления дефекта
       options:
-       - Высокий
-       - Средний
-       - Низкий
+        - Высокий
+        - Средний
+        - Низкий
     validations:
       required: true
 
   - type: dropdown
-    id: Severity
+    id: severity
     attributes:
       label: Серьёзность
+      description: Влияние дефекта на работу системы
       options:
-       - Критическая
-       - Высокая
-       - Средняя
-       - Низкая
+        - Критическая
+        - Высокая
+        - Средняя
+        - Низкая
     validations:
       required: true
+
   - type: checkboxes
     id: verification
     attributes:
